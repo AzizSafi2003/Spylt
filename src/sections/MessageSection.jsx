@@ -39,7 +39,7 @@ const MessageSection = () => {
     });
 
     const revealTl = gsap.timeline({
-      delay: 1,
+      delay: 0.5,
       scrollTrigger: {
         trigger: ".msg-text-scroll",
         start: "top 60%",
