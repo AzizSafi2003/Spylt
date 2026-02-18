@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import HeroSection from "./sections/HeroSection";
 import MessageSection from "./sections/MessageSection";
 import FlavorSection from "./sections/FlavorSection";
+import NutritionSection from "./sections/NutritionSection";
 
 // Register GSAP plugins globally ONCE
 gsap.registerPlugin(ScrollTrigger);
@@ -44,6 +45,7 @@ const App = () => {
       <HeroSection />
       <MessageSection />
       <FlavorSection />
+      <NutritionSection />
       <div className="h-dvh" />
     </main>
   );
