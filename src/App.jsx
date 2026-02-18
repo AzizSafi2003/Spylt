@@ -6,6 +6,7 @@ import { useLenis } from "./context/SmoothScroll";
 import Navbar from "./components/Navbar";
 import HeroSection from "./sections/HeroSection";
 import MessageSection from "./sections/MessageSection";
+import FlavorSection from "./sections/FlavorSection";
 
 // Register GSAP plugins globally ONCE
 gsap.registerPlugin(ScrollTrigger);
@@ -42,6 +43,7 @@ const App = () => {
       <Navbar />
       <HeroSection />
       <MessageSection />
+      <FlavorSection />
       <div className="h-dvh" />
     </main>
   );
