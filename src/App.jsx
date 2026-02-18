@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import { useLenis } from "./context/SmoothScroll";
-
 import Navbar from "./components/Navbar";
 import HeroSection from "./sections/HeroSection";
+import MessageSection from "./sections/MessageSection";
 
 // Register GSAP plugins globally ONCE
 gsap.registerPlugin(ScrollTrigger);
@@ -41,7 +41,8 @@ const App = () => {
     <main>
       <Navbar />
       <HeroSection />
-      <div className="h-dvh border border-red-500"></div>
+      <MessageSection />
+      <div className="h-dvh" />
     </main>
   );
 };
