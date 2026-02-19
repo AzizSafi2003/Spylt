@@ -43,7 +43,7 @@ const BenefitSection = () => {
   });
 
   return (
-    <section className="benefit-section">
+    <section className="benefit-section bg-[#222123]">
       <div className="container mx-auto pt-20">
         <div className="col-center">
           <p>

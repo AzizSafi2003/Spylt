@@ -194,7 +194,6 @@ body::-webkit-scrollbar {
 
   .benefit-section {
     @apply min-h-dvh overflow-hidden relative;
-    background-color: #222123 !important;
 
     p {
       @apply text-milk font-paragraph text-center text-lg;
