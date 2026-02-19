@@ -6,16 +6,16 @@ const FooterSection = () => {
   });
 
   return (
-    <section className="footer-section md:mt-52 pb-24">
+    <section className="footer-section md:mt-52 mt-20 pb-24">
       <img
         src="/images/footer-dip.png"
         alt=""
         className="w-full object-cover -translate-y-1"
       />
 
-      <div className="2xl:h-[110dvh] relative md:pt-[20vh] pt-[10vh]">
-        <div className="overflow-hidden z-10">
-          <h1 className="general-title text-center text-milk py-5">
+      <div className="2xl:h-[110dvh] md:h-auto h-auto relative md:pt-[20vh] pt-[10vh]">
+        <div className="overflow-hidden z-10 relative">
+          <h1 className="general-title text-center text-milk py-5 md:text-[6vw] text-[8vw] leading-none">
             #CHUGRESPONSIBLY
           </h1>
         </div>
@@ -23,7 +23,7 @@ const FooterSection = () => {
         {isMobile ? (
           <img
             src="/images/footer-drink.png"
-            className="absolute top-0 object-contain"
+            className="absolute top-0 left-0 w-full h-auto object-contain opacity-60"
           />
         ) : (
           <video
@@ -31,35 +31,35 @@ const FooterSection = () => {
             autoPlay
             playsInline
             muted
-            className="absolute top-0 object-contain mix-blend-lighten"
+            className="absolute top-0 left-0 w-full h-auto object-contain mix-blend-lighten"
           />
         )}
 
-        <div className="flex-center gap-5 relative z-10 md:mt-20 mt-5">
-          <div className="social-btn">
-            <img src="./images/yt.svg" alt="" />
-          </div>
-          <div className="social-btn">
-            <img src="./images/insta.svg" alt="" />
-          </div>
-          <div className="social-btn">
-            <img src="./images/tiktok.svg" alt="" />
-          </div>
+        <div className="flex-center gap-5 relative z-10 md:mt-20 mt-10">
+          <a href="#" className="social-btn">
+            <img src="./images/yt.svg" alt="YouTube" />
+          </a>
+          <a href="#" className="social-btn">
+            <img src="./images/insta.svg" alt="Instagram" />
+          </a>
+          <a href="#" className="social-btn">
+            <img src="./images/tiktok.svg" alt="TikTok" />
+          </a>
         </div>
 
-        {/* Refined links section with better spacing */}
-        <div className="mt-40 md:px-16 px-5 flex gap-16 md:flex-row flex-col justify-between text-milk font-paragraph md:text-lg font-medium">
-          {/* Links container with even column distribution */}
-          <div className="flex items-start md:gap-20 gap-8">
-            {/* Column 1 - Single item, aligned top */}
-            <div className="min-w-30">
-              <p className="hover:text-light-brown transition-colors cursor-pointer hidden md:block">
+        {/* Links section - fully responsive */}
+        <div className="mt-20 md:mt-40 md:px-16 px-6 flex xl:flex-row flex-col xl:gap-16 gap-10 justify-between text-milk font-paragraph md:text-lg text-base font-medium relative z-10">
+          {/* Links container */}
+          <div className="flex md:items-start items-center md:justify-start justify-center md:gap-16 gap-8 md:flex-nowrap flex-wrap">
+            {/* Column 1 - Hidden on mobile, visible on desktop */}
+            <div className="md:block hidden min-w-30">
+              <p className="hover:text-light-brown transition-colors cursor-pointer">
                 SPYLT Flavors
               </p>
             </div>
 
-            {/* Column 2 - Two items with vertical spacing */}
-            <div className="flex flex-col gap-3 min-w-35 md:ml-20">
+            {/* Column 2 */}
+            <div className="flex flex-col gap-3 md:min-w-35 min-w-25">
               <p className="hover:text-light-brown transition-colors cursor-pointer">
                 Chug Club
               </p>
@@ -71,8 +71,8 @@ const FooterSection = () => {
               </p>
             </div>
 
-            {/* Column 3 - Two items with vertical spacing */}
-            <div className="flex flex-col gap-3 min-w-30">
+            {/* Column 3 */}
+            <div className="flex flex-col gap-3 md:min-w-30 min-w-25">
               <p className="hover:text-light-brown transition-colors cursor-pointer">
                 Company
               </p>
@@ -85,16 +85,16 @@ const FooterSection = () => {
             </div>
           </div>
 
-          {/* Newsletter/description text - better max-width and alignment */}
-          <div className="md:max-w-sm md:text-right mt-12">
-            <p className="leading-relaxed">
+          {/* Newsletter text - full width on md/lg, side by side on xl */}
+          <div className="xl:max-w-sm w-full xl:text-right text-center md:mt-0 mt-4">
+            <p className="leading-relaxed md:text-lg text-sm">
               Get Exclusive Early Access and Stay Informed About Product
               Updates, Events, and More!
             </p>
           </div>
         </div>
 
-        {/* Refined copyright section */}
+        {/* Copyright section */}
         <div className="copyright-box md:px-16 px-5">
           <p className="text-sm opacity-70">
             Copyright © 2025 Spylt - All Rights Reserved
@@ -104,7 +104,7 @@ const FooterSection = () => {
             <p className="text-sm opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
               Privacy Policy
             </p>
-            <span className="w-px h-4 bg-milk/30"></span>
+            <span className="w-px h-4 bg-milk/30 hidden md:block"></span>
             <p className="text-sm opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
               Terms of Service
             </p>

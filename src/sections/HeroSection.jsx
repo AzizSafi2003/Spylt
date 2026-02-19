@@ -2,8 +2,13 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { useMediaQuery } from "react-responsive";
+import { useRef } from "react";
+
+const PRELOADER_DURATION = 4.5;
 
 const HeroSection = () => {
+  const videoRef = useRef(null);
+
   const isMobile = useMediaQuery({
     query: "(max-width: 768px)",
   });
@@ -13,38 +18,48 @@ const HeroSection = () => {
   });
 
   useGSAP(() => {
-    const titleSplit = SplitText.create(".hero-title", {
-      type: "chars",
-    });
-
-    const tl = gsap.timeline({
-      delay: 1,
-    });
-
-    tl.to(".hero-content", {
-      opacity: 1,
-      y: 0,
-      ease: "power1.inOut",
-    })
-      .to(
-        ".hero-text-scroll",
-        {
-          duration: 1,
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          ease: "circ.out",
-        },
-        "-=0.5",
-      )
-      .from(
-        titleSplit.chars,
-        {
-          yPercent: 200,
-          stagger: 0.02,
+    gsap.delayedCall(PRELOADER_DURATION, () => {
+      // Start video playback and fade it in
+      if (videoRef.current) {
+        videoRef.current.play();
+        gsap.to(videoRef.current, {
+          opacity: 1,
+          duration: 0.5,
           ease: "power2.out",
-        },
-        "-=0.5",
-      );
-  });
+        });
+      }
+
+      const titleSplit = SplitText.create(".hero-title", {
+        type: "chars",
+      });
+
+      const tl = gsap.timeline();
+
+      tl.to(".hero-content", {
+        opacity: 1,
+        y: 0,
+        ease: "power1.inOut",
+      })
+        .to(
+          ".hero-text-scroll",
+          {
+            duration: 1,
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            ease: "circ.out",
+          },
+          "-=0.5",
+        )
+        .from(
+          titleSplit.chars,
+          {
+            yPercent: 200,
+            stagger: 0.02,
+            ease: "power2.out",
+          },
+          "-=0.5",
+        );
+    });
+  }, []);
 
   return (
     <section className="bg-main-bg">
@@ -54,7 +69,7 @@ const HeroSection = () => {
             {isMobile && (
               <img
                 src="/images/hero-bg.png"
-                className="absolute bottom-40 size-full object-cover"
+                className="absolute bottom-0 size-full object-cover"
               />
             )}
             <img
@@ -64,11 +79,12 @@ const HeroSection = () => {
           </>
         ) : (
           <video
+            ref={videoRef}
             src="/videos/hero-bg.mp4"
-            autoPlay
             muted
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
+            style={{ opacity: 0 }}
           />
         )}
         <div className="hero-content opacity-0">
