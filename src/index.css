@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap ");
 @import "tailwindcss";
 
 @font-face {
@@ -193,7 +193,8 @@ body::-webkit-scrollbar {
   }
 
   .benefit-section {
-    @apply min-h-dvh bg-[#222123] overflow-hidden relative;
+    @apply min-h-dvh overflow-hidden relative;
+    background-color: #222123 !important;
 
     p {
       @apply text-milk font-paragraph text-center text-lg;
@@ -216,13 +217,12 @@ body::-webkit-scrollbar {
     }
 
     .vd-pin-section {
-      @apply w-full h-screen overflow-hidden relative bg-[#222123];
-      /* Full viewport height, dark background so clip-path looks right */
+      @apply w-full h-screen overflow-hidden relative;
+      background-color: #222123 !important;
     }
 
     .vd-pin-section .video-box {
       @apply w-full h-full absolute inset-0 flex items-center justify-center;
-      /* Center content using flexbox */
     }
 
     .vd-pin-section video {
@@ -233,7 +233,6 @@ body::-webkit-scrollbar {
     .vd-pin-section .video-overlay {
       @apply relative flex items-center justify-center;
       z-index: 2;
-      /* This centers the play button and spinning text */
     }
 
     .vd-pin-section .spin-circle {
@@ -245,7 +244,6 @@ body::-webkit-scrollbar {
       @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
          w-[9vw] h-[9vw] flex justify-center items-center 
          bg-[#ffffff1a] backdrop-blur-xl rounded-full;
-      /* Centered absolutely within the overlay */
     }
 
     .vd-pin-section .play-icon {
@@ -279,7 +277,8 @@ body::-webkit-scrollbar {
   }
 
   .footer-section {
-    @apply relative bg-[#222123] md:mt-52 mt-20 overflow-hidden;
+    @apply relative md:mt-52 mt-20 overflow-hidden;
+    background-color: #222123 !important;
 
     .social-btn {
       @apply border border-[#faeade33] md:size-14 size-12 
