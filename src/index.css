@@ -213,18 +213,48 @@ body::-webkit-scrollbar {
     }
 
     .vd-pin-section {
-      @apply md:h-[110vh] h-dvh overflow-hidden md:!-translate-y-[15%] md:mt-0 mt-20;
+      @apply w-full h-screen overflow-hidden relative bg-[#222123];
+      /* Full viewport height, dark background so clip-path looks right */
+    }
 
-      video {
-        @apply size-full absolute inset-0 object-cover;
+    .vd-pin-section .video-box {
+      @apply w-full h-full absolute inset-0 flex items-center justify-center;
+      /* Center content using flexbox */
+    }
+
+    .vd-pin-section video {
+      @apply w-full h-full object-cover absolute inset-0;
+      z-index: 1;
+    }
+
+    .vd-pin-section .video-overlay {
+      @apply relative flex items-center justify-center;
+      z-index: 2;
+      /* This centers the play button and spinning text */
+    }
+
+    .vd-pin-section .spin-circle {
+      @apply w-[15vw] h-[15vw] animate-spin;
+      animation: spin 20s linear infinite;
+    }
+
+    .vd-pin-section .play-btn {
+      @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+         w-[9vw] h-[9vw] flex justify-center items-center 
+         bg-[#ffffff1a] backdrop-blur-xl rounded-full;
+      /* Centered absolutely within the overlay */
+    }
+
+    .vd-pin-section .play-icon {
+      @apply w-[3vw] h-[3vw] ml-[0.5vw];
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
       }
-
-      .play-btn {
-        @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[9vw] flex justify-center items-center bg-[#ffffff1a] backdrop-blur-xl rounded-full;
-      }
-
-      img:first-of-type {
-        @apply size-[15vw];
+      to {
+        transform: rotate(360deg);
       }
     }
   }
